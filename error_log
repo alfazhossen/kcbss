@@ -1,0 +1,10 @@
+[20-Sep-2021 18:12:37 Asia/Dhaka] PHP Fatal error:  Cannot redeclare Dashboard_model::todayExpense() in /home/bazaxeik/royal-n-bd.com/kcbss/application/models/Dashboard_model.php on line 61
+[20-Sep-2021 18:16:38 Asia/Dhaka] PHP Fatal error:  Cannot redeclare Dashboard_model::todayExpense() in /home/bazaxeik/royal-n-bd.com/kcbss/application/models/Dashboard_model.php on line 61
+[20-Sep-2021 18:21:10 Asia/Dhaka] PHP Fatal error:  Cannot redeclare Dashboard_model::todayExpense() in /home/bazaxeik/royal-n-bd.com/kcbss/application/models/Dashboard_model.php on line 61
+[20-Sep-2021 18:21:49 Asia/Dhaka] PHP Fatal error:  Cannot redeclare Dashboard_model::monthlyExpense() in /home/bazaxeik/royal-n-bd.com/kcbss/application/models/Dashboard_model.php on line 64
+[05-Oct-2021 08:07:17 UTC] PHP Fatal error:  Cannot redeclare User::delete() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 220
+[07-Oct-2021 08:16:44 UTC] PHP Fatal error:  Cannot redeclare User::delete_daily() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 227
+[07-Oct-2021 08:17:21 UTC] PHP Fatal error:  Cannot redeclare User::delete_daily() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 227
+[07-Oct-2021 08:17:40 UTC] PHP Fatal error:  Cannot redeclare User::delete_daily() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 227
+[07-Oct-2021 08:17:43 UTC] PHP Fatal error:  Cannot redeclare User::delete_daily() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 227
+[07-Oct-2021 08:17:53 UTC] PHP Fatal error:  Cannot redeclare User::delete_daily() in /home/kcbshjfm/public_html/app/application/controllers/User.php on line 227
