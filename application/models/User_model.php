@@ -136,4 +136,11 @@ class User_model extends CI_Model
 		$this->db->update('user', $params);
 	}
 	
+	public function resign($username){
+		$params['deleted'] = 1;
+		$params['deleted_by'] = $this->login->user_login()->username;
+		$params['deleted_date'] = date('Y-m-d H:i:s');
+		$this->db->where('username', $username);
+		$this->db->update('user', $params);
+	}
 }

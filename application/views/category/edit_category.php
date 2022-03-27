@@ -15,15 +15,17 @@
                 </div>
                 <div class="card-body">
                     <form action="<?=base_url('category/editProcess')?>" method="post">
-                    <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <input type="hidden" name="category_id" value="<?=$row->category_id?>">
-                        <input class="form-control" placeholder="Category Name" type="text" name="category" required value="<?=$row->category?>">
-                    </div>
-                         <button type="submit" class="btn btn-outline-success mt-1 mb-1">Save</button>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <input type="hidden" name="category_id" value="<?=$row->category_id?>">
+                            <input class="form-control" placeholder="Category Name" type="text" name="category" required
+                                value="<?=$row->category?>">
+                        </div>
+                        <button type="submit" class="btn btn-outline-success mt-1 mb-1">Save</button>
                         <button type="reset" class="btn btn-outline-danger mt-1 mb-1">Reset</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+</div>

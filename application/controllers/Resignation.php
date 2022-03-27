@@ -23,6 +23,12 @@ class Resignation extends CI_Controller {
 		$data['row'] = $this->resignationModel->get()->result();
 		$this->template->load('template', 'resignation/resignation_list', $data);
 	}
+	public function resignMember()
+	{
+		$data['title'] = 'All Resignation Member';
+		$data['row'] = $this->resignationModel->get()->result();
+		$this->template->load('template', 'resignation/resignation_member', $data);
+	}
 	public function view($id){
 		$data['title'] = 'Resignation View';
 		$data['row'] = $this->resignationModel->get($id)->row();
@@ -36,26 +42,28 @@ class Resignation extends CI_Controller {
         }
         redirect('resignation');
     }
-//     public function edit($id)
-// 	{
-// 		$data['title'] = 'Edit Category';
-//         $data['member'] = $this->user_model->getMember();
-//         $data['row'] = $this->categoryModel->get($id)->row();
-//         $this->template->load('template', 'category/edit_category', $data);
-// 	}
-//     public function editProcess(){
-//         $post = $this->input->post(null, TRUE);
-//         $this->categoryModel->edit($post);
-//         if ($this->db->affected_rows() > 0) {
-//             $this->session->set_flashdata('success', 'Your Data is successfully updated');
-//         }
-//         redirect('category');
-//     }
-//     public function delete($id){
-//         $this->categoryModel->delete($id);
-//         if ($this->db->affected_rows() > 0) {
-//             $this->session->set_flashdata('success', 'Your Data is successfully deleted');
-//         } 
-//         redirect('category');
-//     }
+    public function approve($id)
+	{
+		$data['title'] = 'Approved Resign';
+        $data['row'] = $this->resignationModel->get($id)->row();
+        $this->template->load('template', 'resignation/resignation_approve', $data);
+	}
+    public function approveProcess(){
+        $post = $this->input->post(null, TRUE);
+        $this->resignationModel->approve($post);
+		if($this->db->affected_rows() > 0){
+			$this->user_model->resign($post['create_user']);
+		}
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('success', 'Your user is successfully Resign');
+        }
+        redirect('resignation/list');
+    }
+    public function delete($id){
+        $this->resignationModel->delete($id);
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('success', 'Your Data is successfully deleted');
+        } 
+        redirect('resignation');
+    }
 }

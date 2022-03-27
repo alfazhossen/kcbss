@@ -136,6 +136,11 @@
                                     class="side-menu__label">Request Resign</span></a>
                         </li>
                         <li class="slide">
+                            <a class="side-menu__item" href="<?=base_url('resignation/resignMember')?>"><i
+                                    class="side-menu__icon fe fe-user-x"></i><span class="side-menu__label">Resign
+                                    Member</span></a>
+                        </li>
+                        <li class="slide">
                             <a class="side-menu__item" href="<?=base_url('report')?>"><i
                                     class="side-menu__icon fe fe-file-text"></i><span
                                     class="side-menu__label">Report</span></a>

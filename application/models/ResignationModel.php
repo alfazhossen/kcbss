@@ -6,6 +6,7 @@ class ResignationModel extends CI_Model {
 		$this->db->from('resignation');
 		if ($id != null) {
 			$this->db->where('resign_id', $id);
+			$this->db->join('user', 'user.username=resignation.create_user');
 		}
 		$this->db->order_by('resign_id', 'DESC');
 		$query = $this->db->get();
@@ -22,16 +23,22 @@ class ResignationModel extends CI_Model {
 		$this->db->insert('resignation', $params);
 	}
 
-	public function edit($post)
+	public function approve($post)
 	{
 		$params = [
-			'resignation'   	=> $post['resignation'],
-			'update_date' 	=> date('Y-m-d H:i:s'),
-			'update_user' 	=> $this->login->user_login()->username
+			'daily'   				=> $post['daily'],
+			'office_cost'   		=> $post['office_cost'],
+			'emg_deposit'   		=> $post['emg_deposit'],
+			'total_amount_deposit' => (int)$post['daily']+ (int)$post['office_cost']+ (int)$post['emg_deposit'],
+			'return_amount' 		=> $post['return_amount'],
+			'total_balance' 		=>((int)$post['daily']+(int)$post['office_cost']+(int)$post['emg_deposit'])-(int)$post['return_amount'],
+			'update_date' 			=> date('Y-m-d H:i:s'),
+			'update_user' 			=> $this->login->user_login()->username
 		];
-		$this->db->where('resignation_id', $post['resignation_id']);
+		$this->db->where('resign_id', $post['resign_id']);
 		$this->db->update('resignation', $params);
 	}
+
     public function delete($id){
         $this->db->where('resignation_id', $id);
         $this->db->delete('resignation');

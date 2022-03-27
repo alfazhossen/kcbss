@@ -27,13 +27,12 @@
                                     <th class="wd-15p">Member Name</th>
                                     <th class="wd-15p">Date & Time</th>
                                     <th class="wd-15p">Details</th>
-                                    <th class="wd-25p">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $n = 1;
                                 foreach($row as $key) { 
-									if($key->total_balance<=0){
+									if($key->total_balance>0){
 									?>
                                 <tr>
                                     <td><?=$n++?></td>
@@ -43,16 +42,6 @@
                                     </td>
                                     <td><?=$key->create_date?></td>
                                     <td><?=$key->details?></td>
-                                    <td width='5%'>
-                                        <a href="<?=base_url('resignation/view/'.$key->resign_id)?>"
-                                            class="btn btn-sm btn-success" title="View"><i class="fas fa-eye"></i></a>
-                                        <!-- <a href="<?=base_url('resignation/edit/'.$key->resign_id)?>"
-                                            class="btn btn-sm btn-info" title="Approve"><i
-                                                class="fas fa-pencil-alt"></i></a> -->
-                                        <a href="<?=base_url('resignation/delete/'.$key->resign_id)?>"
-                                            class="btn btn-sm btn-danger" title="Delete"><i
-                                                class="fas fa-trash-alt"></i></a>
-                                    </td>
                                 </tr>
                                 <?php } }?>
                             </tbody>
